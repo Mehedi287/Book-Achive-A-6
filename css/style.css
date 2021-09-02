@@ -1,10 +1,7 @@
 body{
     background-color: rgb(194, 249, 250);
 }
-.img{
-    height: 500px ;
-    width: 400px;
-}
+ 
 #spinner{
     margin-top: 10px;
     text-align: center;
