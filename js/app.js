@@ -19,7 +19,7 @@ const toggleSpiner = displayStyle => {
 // ----------------------fetch api ----------------------
 const getBooks = (bookName) => {
     toggleSpiner('block');
-    fetch(`http://openlibrary.org/search.json?q= ${bookName}`)
+    fetch(`https://openlibrary.org/search.json?q= ${bookName}`)
         .then(res => res.json())
         .then(data => displayBook(data.docs))
 }
