@@ -28,22 +28,25 @@ const displayBook = books => {
 
     const container = document.getElementById('container');
     container.textContent = '';
+
     //    --------------get  total result container --------------
     const totalResult = document.getElementById('total-result');
     totalResult.textContent = '';
     const h1 = document.createElement('h1');
     h1.innerText = `Total Result :  ${books.length}`;
     totalResult.appendChild(h1);
-
-
+    // ----------------------set show result----------------
+    const showResult = document.getElementById('show-result');
+    showResult.textContent = '';
+    const h2 = document.createElement('h2');
+    h2.innerText = `Show Result : ${books.slice(0, 15).length}`;
+    showResult.appendChild(h2)
     // ------------set error for unacepcted result----------- 
     if (books.length === 0) {
         alert('Your Result is Not Found')
     }
     else {
-
         books.slice(0, 15).forEach(book => {
-
             console.log(book);
             const div = document.createElement('div');
             div.classList.add('col');
