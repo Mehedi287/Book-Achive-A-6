@@ -41,24 +41,22 @@ const displayBook = books => {
         alert('Your Result is Not Found')
     }
     else {
-        // const book2 = books.slice(1, 9);
-        // console.log(book2);
-        books.slice(1, 10).forEach(book => {
-            // const slicedBook = Array.prototype.slice.call(book, 9);
-            // console.log(slicedBook);
+
+        books.slice(0, 15).forEach(book => {
+
             console.log(book);
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
             <div class="card rounded">
-                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : 'img not found 404'}.jpg" class="card-img-top img" alt="...">
+                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top img" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Book Name : ${book.title}</h5>
-                            <p>Author Name : ${book.author_name}</p>
-                            <p> Frist Published : ${book.publish_date ? book.publish_date : 'there is published date'}</p>
-                            <p class="card-text">Language :  ${book.language}</p>
-                            <p class="card-text">Publisher :  ${book.publisher_facet}</p>
-                            <p class="card-text">Type :  ${book.type}</p>
+                            <p>Author Name : ${book.author_name ? book.author_name : 'Not Found'}</p>
+                            <p> Frist Published : ${book.publish_date ? book.publish_date : 'there is No published date'}</p>
+                            <p class="card-text">Language :  ${book.language ? book.language : 'Not Found'}</p>
+                            <p class="card-text">Publisher :  ${book.publisher_facet ? book.publisher_facet : 'Not Found'}</p>
+                            <p class="card-text">Type :  ${book.type ? book.type : 'Not Found'}</p>
                         </div>
             </div>
             `;
