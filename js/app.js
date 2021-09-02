@@ -53,8 +53,9 @@ const displayBook = books => {
                             <h5 class="card-title">Book Name : ${book.title}</h5>
                             <p>Author Name : ${book.author_name}</p>
                             <p> Frist Published : ${book.publish_date}</p>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Language :  ${book.language}</p>
+                            <p class="card-text">Publisher :  ${book.publisher_facet}</p>
+                            <p class="card-text">Type :  ${book.type}</p>
                         </div>
             </div>
             `;
