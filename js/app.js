@@ -1,33 +1,47 @@
-//  addEventListener at search button ----------
+//  -----------addEventListener at search button ----------
 document.getElementById('button').addEventListener('click', function () {
     const inputFlid = document.getElementById('input');
     const inputValue = inputFlid.value;
     inputFlid.value = '';
+    //--------------- throw error for empty search ------------
     if (inputValue === '') {
         alert('please write something');
     }
-    else { getBooks(inputValue); }
-    // console.log(inputValue);
+    else {
+        getBooks(inputValue);
+    }
 });
-// fetch api -------------------------------
+//---------------- set spinner------------------- 
+const toggleSpiner = displayStyle => {
+    const spinner = document.getElementById('spinner');
+    spinner.style.display = displayStyle;
+};
+// ----------------------fetch api ----------------------
 const getBooks = (bookName) => {
+    toggleSpiner('block');
     fetch(`http://openlibrary.org/search.json?q= ${bookName}`)
-        //https://covers.openlibrary.org/b/id/554106-M.jpg
         .then(res => res.json())
         .then(data => displayBook(data.docs))
 }
+// --------------------show searching result ----------------
 const displayBook = books => {
+
+    const container = document.getElementById('container');
+    container.textContent = '';
+    //    --------------get  total result container --------------
     const totalResult = document.getElementById('total-result');
+    totalResult.textContent = '';
     const h1 = document.createElement('h1');
     h1.innerText = `Total Result :  ${books.length}`;
-    totalResult.appendChild(h1)
-    const container = document.getElementById('container');
-    console.log(books.length);
+    totalResult.appendChild(h1);
+
+
+    // ------------set error for unacepcted result----------- 
     if (books.length === 0) {
         alert('Your Result is Not Found')
     }
     else {
-        // console.log(books);
+
         books.forEach(book => {
             console.log(book);
             const div = document.createElement('div');
@@ -47,5 +61,6 @@ const displayBook = books => {
             container.appendChild(div);
         })
     }
+    toggleSpiner('none');
 }
 //-----------
