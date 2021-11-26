@@ -1,3 +1,13 @@
+const serchBtn = document.getElementById('button');
+const inputFlid = document.getElementById('input');
+inputFlid.addEventListener("keypress", function (event) {
+    if (event.key == 'Enter') {
+        serchBtn.click();
+    }
+})
+
+
+
 //  -----------addEventListener at search button ----------
 document.getElementById('button').addEventListener('click', function () {
     const inputFlid = document.getElementById('input');
